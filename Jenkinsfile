@@ -3,7 +3,7 @@ pipeline {
 	stages {
 		stage("Compile") {
 			steps {
-				sh "./gradlew compileJava"
+				sh "./gradlew clean compileJava"
 			}
 		}
 		stage("Unit test"){
@@ -32,6 +32,11 @@ pipeline {
 					reportName: "Checkstyle Report"
 
 				])
+			}
+		}
+		stage("SonarQube analysis"){
+			steps{
+
 			}
 		}
 	}
